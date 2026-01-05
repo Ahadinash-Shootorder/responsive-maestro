@@ -59,29 +59,62 @@ export const CareerStreams = () => {
   ];
 
   return (
-    <section className="w-full bg-[#f7f7f7]">
+    <section className="w-full bg-white">
       {/* Mobile Version */}
-      <div className="block md:hidden w-full py-8">
-        <div className="px-4 mb-8">
-          <h2 className="[font-family:'Inter',Helvetica] font-bold text-[#122e6c] text-3xl text-center leading-tight">
-            Sample Career Streams &<br />Mentor Backgrounds
-          </h2>
-        </div>
+      <div className="block md:hidden w-full py-8 px-4">
+        <h2 className="[font-family:'Inter',Helvetica] font-bold text-[#122e6c] text-[22px] text-center leading-tight mb-6">
+          Sample Career Streams &<br />Mentor Backgrounds
+        </h2>
 
-        <div className="space-y-0">
+        <div className="border border-[#122e6c] rounded-lg overflow-hidden">
           {careerData.map((stream, index) => (
             <div key={index}>
-              <div className="bg-[#122e6c] py-3 px-4">
+              <div className="bg-[#122e6c] py-2.5 px-4">
+                <span className="[font-family:'Inter',Helvetica] font-bold text-white text-sm">
+                  {stream.title}
+                </span>
+              </div>
+              
+              <div className="bg-white py-4 px-3 flex items-center justify-center gap-4 flex-wrap">
+                {stream.logos.map((logo, logoIndex) => (
+                  <img
+                    key={logoIndex}
+                    className="h-8 w-auto object-contain max-w-[70px]"
+                    alt={logo.alt}
+                    src={logo.src}
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Stats */}
+        <p className="[font-family:'Inter',Helvetica] font-bold text-[#ef7f1a] text-lg text-center mt-6">
+          100+ Mentors | 20+ Career Pathways
+        </p>
+      </div>
+
+      {/* Tablet Version */}
+      <div className="hidden md:block lg:hidden w-full py-10 px-6">
+        <h2 className="[font-family:'Inter',Helvetica] font-bold text-[#122e6c] text-3xl text-center leading-tight mb-8">
+          Sample Career Streams & Mentor Backgrounds
+        </h2>
+
+        <div className="border border-[#122e6c] rounded-lg overflow-hidden max-w-4xl mx-auto">
+          {careerData.map((stream, index) => (
+            <div key={index} className="flex">
+              <div className="bg-[#122e6c] py-4 px-6 w-48 flex-shrink-0 flex items-center">
                 <span className="[font-family:'Inter',Helvetica] font-bold text-white text-base">
                   {stream.title}
                 </span>
               </div>
               
-              <div className="bg-white py-2 px-1 flex items-center justify-around flex-wrap gap-4">
+              <div className="bg-white py-4 px-6 flex items-center justify-center gap-6 flex-1 flex-wrap">
                 {stream.logos.map((logo, logoIndex) => (
                   <img
                     key={logoIndex}
-                    className="h-20 w-auto object-contain max-w-[80px]"
+                    className="h-10 w-auto object-contain max-w-[90px]"
                     alt={logo.alt}
                     src={logo.src}
                   />
@@ -90,70 +123,42 @@ export const CareerStreams = () => {
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Tablet Version */}
-      <div className="hidden md:block lg:hidden w-full py-12">
-        <div className="px-6 mb-12">
-          <h2 className="[font-family:'Inter',Helvetica] font-bold text-[#122e6c] text-4xl text-center leading-tight">
-            Sample Career Streams & Mentor Backgrounds
-          </h2>
-        </div>
-
-        <div className="space-y-0 max-w-6xl mx-auto">
-          {careerData.map((stream, index) => (
-            <div key={index}>
-              <div className="bg-[#122e6c] py-4 px-6 border-l-4 border-[#ef7f1a]">
-                <span className="[font-family:'Inter',Helvetica] font-bold text-white text-xl">
-                  {stream.title}
-                </span>
-              </div>
-              
-              <div className="bg-white py-8 px-6 flex items-center justify-center flex-wrap gap-6">
-                {stream.logos.map((logo, logoIndex) => (
-                  <img
-                    key={logoIndex}
-                    className="h-12 w-auto object-contain max-w-[100px]"
-                    alt={logo.alt}
-                    src={logo.src}
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+        <p className="[font-family:'Inter',Helvetica] font-bold text-[#ef7f1a] text-2xl text-center mt-8">
+          100+ Mentors | 20+ Career Pathways
+        </p>
       </div>
 
       {/* Desktop Version */}
-      <div className="hidden lg:block w-full py-16">
+      <div className="hidden lg:block w-full py-12 bg-white">
         <div className="max-w-[1340px] mx-auto px-[50px]">
-          <h2 className="[font-family:'Inter',Helvetica] font-bold text-[#122e6c] text-5xl text-center mb-12">
+          <h2 className="[font-family:'Inter',Helvetica] font-bold text-[#122e6c] text-4xl text-center mb-10">
             Sample Career Streams &<br />Mentor Backgrounds
           </h2>
 
-          <div className="space-y-6">
+          <div className="border border-[#122e6c] rounded-[10px] overflow-hidden">
             {careerData.map((stream, index) => (
-              <div key={index} className="flex items-center bg-white/30 rounded-[10px] shadow-md overflow-hidden">
+              <div key={index} className="flex items-stretch border-b border-[#122e6c] last:border-b-0">
                 {/* Title */}
-                <div className="bg-[#122e6c] rounded-[10px] py-6 px-8 min-w-[209px] flex-shrink-0">
-                  <span className="[font-family:'Inter',Helvetica] font-bold text-white text-2xl text-center block">
+                <div className="bg-[#122e6c] py-5 px-6 w-[200px] flex-shrink-0 flex items-center">
+                  <span className="[font-family:'Inter',Helvetica] font-bold text-white text-lg">
                     {stream.title}
                   </span>
                 </div>
                 
                 {/* Description */}
-                <div className="bg-[#d9d9d9] rounded-[10px] py-6 px-8 min-w-[400px] mx-4">
-                  <p className="[font-family:'Inter',Helvetica] font-normal text-black text-2xl">
+                <div className="bg-[#e8e8e8] py-5 px-6 w-[350px] flex-shrink-0 flex items-center">
+                  <p className="[font-family:'Inter',Helvetica] font-normal text-black text-lg">
                     {stream.description}
                   </p>
                 </div>
                 
                 {/* Logos */}
-                <div className="flex items-center gap-8 flex-1 justify-end pr-8">
+                <div className="bg-white flex items-center gap-6 flex-1 justify-center py-4 px-6">
                   {stream.logos.map((logo, logoIndex) => (
                     <img
                       key={logoIndex}
-                      className="w-[100px] h-[100px] object-contain"
+                      className="h-16 w-auto object-contain max-w-[100px]"
                       alt={logo.alt}
                       src={logo.src}
                     />
@@ -162,6 +167,10 @@ export const CareerStreams = () => {
               </div>
             ))}
           </div>
+
+          <p className="[font-family:'Inter',Helvetica] font-bold text-[#ef7f1a] text-3xl text-center mt-10">
+            100+ Mentors | 20+ Career Pathways
+          </p>
         </div>
       </div>
     </section>
