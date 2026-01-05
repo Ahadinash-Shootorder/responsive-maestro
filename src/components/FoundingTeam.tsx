@@ -32,34 +32,35 @@ export const FoundingTeam = () => {
   return (
     <section className="w-full">
       {/* Mobile Version */}
-      <div className="block md:hidden w-full px-4 py-8 bg-slate-100">
-        <h2 className="[font-family:'Inter',Helvetica] font-extrabold text-[#0e416f] text-3xl text-center mb-6">
+      <div className="block md:hidden w-full px-5 py-8 bg-gray-50">
+        <h2 className="[font-family:'Inter',Helvetica] font-extrabold text-[#0e416f] text-2xl text-center mb-6">
           Founding Team
         </h2>
 
-        <div className="p-4 mb-4 overflow-hidden">
-          <div className="relative w-full h-[300px]">
+        <div className="relative overflow-hidden mb-4">
+          <div className="h-[280px] relative">
             {teamMembers.map((member, index) => (
-              <img
+              <div
                 key={index}
-                src={member.image}
-                alt={member.name}
-                className={`absolute inset-0 w-full h-full object-contain mx-auto transition-all duration-500 ease-in-out ${
-                  index === activeIndex ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
+                className={`absolute inset-0 flex justify-center transition-all duration-500 ${
+                  index === activeIndex ? 'opacity-100' : 'opacity-0'
                 }`}
-                style={{
-                  transform: index === activeIndex ? 'translateX(0)' : index < activeIndex ? 'translateX(-100%)' : 'translateX(100%)'
-                }}
-              />
+              >
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="h-full w-auto object-contain"
+                />
+              </div>
             ))}
           </div>
         </div>
 
-        <div className="text-center mb-4 transition-all duration-500 ease-in-out">
-          <h3 className="[font-family:'Inter',Helvetica] font-bold text-black text-xl">
+        <div className="text-center mb-4">
+          <h3 className="[font-family:'Inter',Helvetica] font-bold text-black text-lg">
             {teamMembers[activeIndex].name}
           </h3>
-          <p className="[font-family:'Inter',Helvetica] font-normal text-black text-base mt-1">
+          <p className="[font-family:'Inter',Helvetica] font-normal text-black text-sm mt-1">
             {teamMembers[activeIndex].title}
           </p>
         </div>
@@ -69,7 +70,7 @@ export const FoundingTeam = () => {
             <button
               key={index}
               onClick={() => setActiveIndex(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                 index === activeIndex ? 'bg-[#122e6c]' : 'bg-gray-300'
               }`}
             />
@@ -78,25 +79,25 @@ export const FoundingTeam = () => {
       </div>
 
       {/* Tablet Version */}
-      <div className="hidden md:block lg:hidden w-full px-6 py-12 bg-white">
-        <h2 className="[font-family:'Inter',Helvetica] font-extrabold text-[#0e416f] text-5xl text-center mb-12">
+      <div className="hidden md:block lg:hidden w-full px-8 py-10 bg-white">
+        <h2 className="[font-family:'Inter',Helvetica] font-extrabold text-[#0e416f] text-3xl text-center mb-10">
           Founding Team
         </h2>
 
-        <div className="grid grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="flex justify-center gap-8 max-w-4xl mx-auto">
           {teamMembers.map((member, index) => (
-            <div key={index} className="text-center">
-              <div className="mb-6">
+            <div key={index} className="text-center flex-1">
+              <div className="mb-4">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-48 h-48 object-cover rounded-full mx-auto border-4 border-[#122e6c]"
+                  className="w-full h-auto max-w-[200px] mx-auto object-contain"
                 />
               </div>
-              <h3 className="[font-family:'Inter',Helvetica] font-bold text-black text-2xl mb-2">
+              <h3 className="[font-family:'Inter',Helvetica] font-bold text-black text-lg mb-1">
                 {member.name}
               </h3>
-              <p className="[font-family:'Inter',Helvetica] font-normal text-black text-lg leading-tight">
+              <p className="[font-family:'Inter',Helvetica] font-normal text-black text-sm leading-tight">
                 {member.title}
               </p>
             </div>
@@ -105,25 +106,25 @@ export const FoundingTeam = () => {
       </div>
 
       {/* Desktop Version */}
-      <div className="hidden lg:block w-full py-16 bg-[#f7f7f7]">
+      <div className="hidden lg:block w-full py-14 bg-white">
         <div className="max-w-[1340px] mx-auto px-[50px]">
-          <h2 className="[font-family:'Inter',Helvetica] font-extrabold text-[#0e416f] text-4xl text-center mb-16">
+          <h2 className="[font-family:'Inter',Helvetica] font-extrabold text-[#0e416f] text-4xl text-center mb-12">
             Founding Team
           </h2>
 
-          <div className="flex justify-center gap-16">
+          <div className="flex justify-center gap-12">
             {teamMembers.map((member, index) => (
               <div key={index} className="text-center">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-[358px] h-[358px] object-cover mb-6"
+                  className="w-[300px] h-[300px] object-contain mb-4"
                 />
-                <div className="bg-[#f7f7f7] rounded-[10px] shadow-md p-6">
-                  <h3 className="[font-family:'Inter',Helvetica] font-bold text-black text-xl mb-2">
+                <div className="bg-white rounded-lg shadow-md p-4">
+                  <h3 className="[font-family:'Inter',Helvetica] font-bold text-black text-lg mb-1">
                     {member.name}
                   </h3>
-                  <p className="[font-family:'Inter',Helvetica] font-normal text-black text-xl">
+                  <p className="[font-family:'Inter',Helvetica] font-normal text-black text-base">
                     {member.title}
                   </p>
                 </div>
